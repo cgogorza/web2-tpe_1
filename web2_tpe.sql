@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-09-2023 a las 17:32:14
+-- Tiempo de generación: 22-09-2023 a las 22:58:46
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,14 +24,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos`
+-- Estructura de tabla para la tabla `inscripciones`
 --
 
-CREATE TABLE `alumnos` (
-  `alumno_id` int(11) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
-  `dni` int(11) NOT NULL,
+CREATE TABLE `inscripciones` (
+  `inscripcion_id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `objetivo` varchar(100) NOT NULL,
   `materia_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -44,8 +44,7 @@ CREATE TABLE `alumnos` (
 CREATE TABLE `materias` (
   `materia_id` int(11) NOT NULL,
   `materia` varchar(100) NOT NULL,
-  `objetivo` varchar(100) NOT NULL,
-  `modalidad` varchar(100) NOT NULL,
+  `profesor` varchar(100) NOT NULL,
   `horario` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -54,10 +53,10 @@ CREATE TABLE `materias` (
 --
 
 --
--- Indices de la tabla `alumnos`
+-- Indices de la tabla `inscripciones`
 --
-ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`alumno_id`),
+ALTER TABLE `inscripciones`
+  ADD PRIMARY KEY (`inscripcion_id`),
   ADD KEY `materia_id` (`materia_id`);
 
 --
@@ -71,10 +70,10 @@ ALTER TABLE `materias`
 --
 
 --
--- AUTO_INCREMENT de la tabla `alumnos`
+-- AUTO_INCREMENT de la tabla `inscripciones`
 --
-ALTER TABLE `alumnos`
-  MODIFY `alumno_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `inscripciones`
+  MODIFY `inscripcion_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
@@ -87,10 +86,10 @@ ALTER TABLE `materias`
 --
 
 --
--- Filtros para la tabla `alumnos`
+-- Filtros para la tabla `inscripciones`
 --
-ALTER TABLE `alumnos`
-  ADD CONSTRAINT `alumnos_ibfk_1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`);
+ALTER TABLE `inscripciones`
+  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`materia_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
