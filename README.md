@@ -21,6 +21,7 @@ Estos datos representan: para que materia el alumno busca compañero de estudio,
 (preparar un final (final), estudiar durante la cursada (cursada) o hacer el Trabajo Practico Especial (TPE)); 
 modalidad (forma de estudio: presencial, virtual o híbrida) y horario en el que puede estudiar 
 (mañana, tarde, noche, indistinto).
+Un alumno puede buscar compañero para estudiar varias materias a la vez o preparar TPE de diferentes materias o estudiar varias materias y varios TPE.
 A futuro, un buscador permitirá que el alumno en búsqueda de un compañero para estudiar cargue sus preferencias y 
 encuentre en la base de datos aquella persona cuyas elecciones coincidan con las de él.
 
