@@ -15,10 +15,10 @@
 los registros de los alumnos de la carrera TUDAI que estén buscando un compañero para estudiar y los registros de 
 las materias de la TUDAI. La base de datos se llama web2_tpe y se compone de dos tablas, a saber: inscripciones y materias.<br>
 La tabla inscripciones está compuesta por 5 campos: inscripciones_id (clave primaria), nombre, email, objetivo  y materia_id (clave foránea). Constituyen los datos de contacto del alumno y el objetivo de estudio perseguido por el alumno
-(preparar un final (final), estudiar durante la cursada (cursada) o hacer el Trabajo Practico Especial (TPE))<br>
+(preparar un final (final), estudiar durante la cursada (cursada) o hacer el Trabajo Practico Especial (TPE)) del alumno inscripto.<br>
 La tabla materias está compuesta por 4 campos: materia_id (clave primaria), materia, profesor y horario.
 Estos datos representan: materia_id (clave primaria), materias de la TUDAI, horario en el que se dicta la materia (mañana o tarde) y profesor que está a cargo de la materia.<br>
-Aclaración: Debe destacarse que este modelo -en el cual cada alumno puede elegir solo una materia- es una simplificación del modelo que puede darse en el mundo real (n a n) en el cual varios alumnos podrían elegir varias materias. Se elabora de esta manera para cumplir con los objetivos didácticos perseguidos, teniendo en cuenta las herramientas de trabajo con las que se cuenta. <p>
+Aclaración: Debe destacarse que este modelo -en el cual cada alumno inscripto puede elegir solo una materia- es una simplificación del modelo que puede darse en el mundo real (n a n) en el cual varios alumnos podrían elegir varias materias. Se elabora de esta manera para cumplir con los objetivos didácticos perseguidos, teniendo en cuenta las herramientas de trabajo con las que se cuenta. <p>
 
 
 
