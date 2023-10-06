@@ -1,0 +1,25 @@
+<?php
+require 'templates/header.phtml';
+foreach($inscripciones as $inscripcion){
+    if($id==$inscripcion->inscripcion_id){
+        ?>
+    <table class="table table-striped table-primary">
+        <thead>
+            <tr>
+                <th scope="col">nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Objetivo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?php echo $inscripcion->nombre ?></td>
+                <td><?php echo $inscripcion->email ?></td>
+                <td><?php echo $inscripcion->objetivo ?></td>
+            </tr>
+        </tbody>
+    </table>
+        <?php ;
+    }
+}
+require 'templates/footer.phtml';

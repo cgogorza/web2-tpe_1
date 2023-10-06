@@ -1,0 +1,17 @@
+<?php
+require 'templates/header.phtml';
+?>
+<ul class="list-group">
+        <?php foreach($materias as $materia) { ?>
+            <li class="list-group-item item-inscripcion">
+                <div>
+                    <b><?php echo $materia->materia ?></b>
+                </div>
+                <div class="actions">
+                    <a href="filtro/<?php echo $materia->materia_id ?>" type="button" class='btn btn-dark ml-auto'>ver alumnos inscriptos</a>
+                </div>
+            </li>
+        <?php } ?>
+        </ul>
+<?php
+require 'templates/footer.phtml';
