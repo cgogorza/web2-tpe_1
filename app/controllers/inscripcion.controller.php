@@ -28,7 +28,8 @@ class InscripcionController {
     }
 
     public function showFormInscripcion(){
-        $this->view->showFormInscripcion();
+        $materias = $this->model->getMaterias();
+        $this->view->showFormInscripcion($materias);
     }
 
     public function addInscripcion() {
