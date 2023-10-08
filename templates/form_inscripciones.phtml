@@ -5,7 +5,7 @@ require 'templates/header.phtml';
     <div class="row">
         <div class="col-4">
             <div class="form-group">
-                <label>Nombre y apellido</label>
+                <label>Nombre y Apellido</label>
                 <input name="nombre" type="text" class="form-control">
             </div>
         </div>
@@ -21,10 +21,13 @@ require 'templates/header.phtml';
             <div class="form-group">
                 <label>materia</label>
                 <select name="materia_id" class="form-control">
-                    <option value="1">Web 2</option> 
-                    <option value="2">Programacion 2</option> 
-                    <option value="3">Tecnología de la Información en las Organizaciones</option> 
-                    <option value="4">Ingles 2</option> 
+                    <?php
+                        foreach($materias as $materia){
+                            ?>
+                            <option value = " <?php $materia->materia_id ?>"><?php $materia ->materia ?> </option>
+                            <?php
+                        }
+                    ?>
                 </select>
             </div>
         </div>

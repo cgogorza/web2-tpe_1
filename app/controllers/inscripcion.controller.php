@@ -28,7 +28,8 @@ class InscripcionController {
     }
 
     public function showFormInscripcion(){
-        $this->view->showFormInscripcion();
+        $materias = $this->model->getMaterias();
+        $this->view->showFormInscripcion($materias);
     }
 
     public function addInscripcion() {
@@ -38,7 +39,6 @@ class InscripcionController {
         $objetivo = $_POST['objetivo'];
         $materia_id = $_POST['materia_id'];
         
-
         // validaciones
         if (empty($nombre) || empty($email) || empty($objetivo) || empty($materia_id)) {
             $this->view->showError("Debe completar todos los campos");

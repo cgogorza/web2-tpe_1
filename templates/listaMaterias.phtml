@@ -5,7 +5,7 @@ require 'templates/header.phtml';
         <?php foreach($materias as $materia) { ?>
             <li class="list-group-item item-inscripcion">
                 <div>
-                    <b><?php echo $materia->materia ?></b>
+                    <b><?php echo $materia->nombre ?></b>
                 </div>
                 <div class="actions">
                     <a href="filtro/<?php echo $materia->materia_id ?>" type="button" class='btn btn-dark ml-auto'>ver alumnos inscriptos</a>

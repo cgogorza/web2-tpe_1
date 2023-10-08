@@ -5,7 +5,7 @@ class InscripcionView {
         require 'templates/ListaInscripciones.phtml';
     }
 
-    public function showFormInscripcion(){
+    public function showFormInscripcion($materias){
         require 'templates/form_inscripciones.phtml';
     }
 

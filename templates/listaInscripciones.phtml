@@ -9,7 +9,7 @@ foreach($inscripciones as $inscripcion) {
     if($id==null || $id==$inscripcion->materia_id){?>
         <li class="list-group-item item-inscripcion">
             <div>
-                <b><?php echo $inscripcion->nombre ?> | Materia: <?php echo $materias[$inscripcion->materia_id-1]->materia ?> </b>
+                <b><?php echo $inscripcion->nombre ?> | Materia: <?php echo $materias[$inscripcion->materia_id-1]->nombre ?> </b>
             </div>
             <div class="actions">
                 <a href="info/<?php echo $inscripcion->inscripcion_id ?>" type="button" class='btn btn-primary ml-auto'>ver info</a>
