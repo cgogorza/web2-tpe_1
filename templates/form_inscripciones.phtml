@@ -23,9 +23,9 @@ require 'templates/header.phtml';
                 <select name="materia_id" class="form-control">
                     <?php 
                         foreach ($materias as $materia) {
-                            ?>
-                            <option value="<?php $materia->materia_id ?>"><?php print($materia->nombre) ?></option>
-                            <?php
+                            
+                            echo '<option value="' . $materia->materia_id . '">' . $materia->nombre . '</option>';
+                          
                         }
                     ?>
                 </select>
