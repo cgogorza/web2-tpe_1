@@ -20,4 +20,8 @@ class InscripcionView {
     public function showInfoInscripcion($inscripciones,$id){
         require 'templates/infoInscripcion.phtml';
     }
+
+    public function mostrarEdicion($inscripciones, $id, $materias){
+        require 'templates/modificar.phtml';
+    }
 }

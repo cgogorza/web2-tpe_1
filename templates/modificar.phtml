@@ -1,0 +1,49 @@
+<?php
+require 'templates/header.phtml';
+?>
+<?php
+foreach($inscripciones as $inscripcion){
+    ?>
+<form action="editar/<?php echo $inscripcion->inscripcion_id ?>" method="POST" class="my-4">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Nombre y Apellido</label>
+                <input name="nombre" type="text" placeholder="<?php echo $inscripcion->nombre ?>" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <label>email</label>
+                <input name="email" type="email" placeholder="<?php echo $inscripcion->email ?>" class="form-control">
+            </div>
+        </div>
+<?php
+}   ?>
+        <div class="col-4">
+            <div class="form-group">
+                <label>materia</label>
+                <select name="materia_id" class="form-control">
+                    <?php 
+                        foreach ($materias as $materia) {
+                            
+                            echo '<option value="' . $materia->materia_id . '">' . $materia->nombre . '</option>';
+                          
+                        }
+                    ?>
+                </select>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="form-group">
+        <label>Objetivo</label>
+        <textarea name="objetivo" placeholder="<?php echo $inscripcion->objetivo ?>" class="form-control" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Modificar</button>
+</form>
+<?php
+require 'templates/footer.phtml';

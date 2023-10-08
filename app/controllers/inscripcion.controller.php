@@ -53,7 +53,7 @@ class InscripcionController {
         }
     }
 
-    function removeProducto($id) {
+    function removeInscripcion($id) {
         $this->model->deleteInscripcion($id);
         header('Location: ' . BASE_URL);
     }
@@ -63,4 +63,29 @@ class InscripcionController {
         $this->view->showInfoInscripcion($inscripciones,$id);
     }
 
+    function showEdit($id) {
+        $materias = $this->model->getMaterias();
+        $inscripciones = $this->model->getInscripcionbyId($id);
+        $this->view->mostrarEdicion($inscripciones, $id, $materias);
+    }
+
+    function modifyInscripcion($id) {
+        $nombre = $_POST['nombre'];
+        $email = $_POST['email'];
+        $objetivo = $_POST['objetivo'];
+        $materia_id = $_POST['materia_id'];
+        
+        // validaciones
+        if (empty($nombre) || empty($email) || empty($objetivo) || empty($materia_id)) {
+            $this->view->showError("Debe completar todos los campos");
+            return;
+        }
+
+        $id = $this->model->updateInscripcion($nombre, $email, $objetivo, $materia_id, $id);
+        if ($id) {
+            header('Location: ' . BASE_URL);
+        } else {
+            $this->view->showError("Error al modificar la tarea");
+        }
+    }
 }

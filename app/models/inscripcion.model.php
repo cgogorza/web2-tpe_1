@@ -16,6 +16,15 @@ class InscripcionModel {
 
         return $inscripciones;
     }
+
+    function getInscripcionbyId($id) {
+
+        $query = $this->db->prepare('SELECT * FROM inscripciones WHERE inscripcion_id = ?');
+        $query->execute([$id]);
+        
+        return  $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
     function getMaterias() {
         $query = $this->db->prepare('SELECT * FROM materias');
         $query->execute();
@@ -35,6 +44,12 @@ class InscripcionModel {
     function deleteInscripcion($id) {
         $query = $this->db->prepare('DELETE FROM inscripciones WHERE inscripcion_id = ?');
         $query->execute([$id]);
+    }
+
+    function updateInscripcion($nombre, $email, $objetivo, $materia_id, $id) {
+        $query = $this->db->prepare('UPDATE inscripciones SET nombre = ?, email = ?, objetivo = ?,  materia_id = ? WHERE inscripcion_id = ?');
+        $query->execute([$nombre, $email, $objetivo, $materia_id, $id]);
+        return $query;
     }
 
 }

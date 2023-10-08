@@ -24,6 +24,15 @@ switch ($params[0]) {
     case 'agregar':
         $inscripciones_controller->addInscripcion();
         break;
+    case 'eliminar':
+        $inscripciones_controller->removeInscripcion($params[1]);
+        break;
+    case 'mostrarEdicion':
+        $inscripciones_controller->showEdit($params[1]);
+        break;
+    case 'editar':
+        $inscripciones_controller->modifyInscripcion($params[1]);
+        break;
     case 'info':
         $inscripciones_controller->showInfo($params[1]);
         break;
