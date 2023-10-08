@@ -21,17 +21,10 @@ require 'templates/header.phtml';
             <div class="form-group">
                 <label>materia</label>
                 <select name="materia_id" class="form-control">
-<<<<<<< HEAD
-                    <?php
-                        foreach($materias as $materia){
-                            ?>
-                            <option value = " <?php $materia->materia_id ?>"><?php $materia ->materia ?> </option>
-=======
                     <?php 
                         foreach ($materias as $materia) {
                             ?>
-                            <option value="<?php $materia->id_materia ?>"><?php $materia->materia ?></option>
->>>>>>> 54c8bc8b82b694b9be2ecfcd0f6dabcbcbe7e7d4
+                            <option value="<?php $materia->materia_id ?>"><?php print($materia->nombre) ?></option>
                             <?php
                         }
                     ?>
