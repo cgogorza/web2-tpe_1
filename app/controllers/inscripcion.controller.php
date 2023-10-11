@@ -1,12 +1,14 @@
 <?php
 require_once './app/models/inscripcion.model.php';
 require_once './app/views/inscripcion.view.php';
+require_once './app/helpers/auth.helper.php';
 
 class InscripcionController {
     private $model;
     private $view;
 
     public function __construct() {
+        AuthHelper::init();
         $this->model = new InscripcionModel();
         $this->view = new InscripcionView();
         
@@ -54,6 +56,7 @@ class InscripcionController {
     }
 
     function removeInscripcion($id) {
+        AuthHelper::verify();
         $this->model->deleteInscripcion($id);
         header('Location: ' . BASE_URL);
     }
@@ -64,12 +67,14 @@ class InscripcionController {
     }
 
     function showEdit($id) {
+        AuthHelper::verify();
         $materias = $this->model->getMaterias();
         $inscripciones = $this->model->getInscripcionbyId($id);
         $this->view->mostrarEdicion($inscripciones, $id, $materias);
     }
 
     function modifyInscripcion($id) {
+        AuthHelper::verify();
         $nombre = $_POST['nombre'];
         $email = $_POST['email'];
         $objetivo = $_POST['objetivo'];

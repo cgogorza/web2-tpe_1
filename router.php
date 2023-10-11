@@ -12,8 +12,7 @@ if (!empty($_GET['action'])) {
 }
 
 $params = explode('/', $action);
-$inscripciones_controller = new InscripcionController();
-$controller = new AuthController();
+
 switch ($params[0]) {
     case 'login':
         $controller = new AuthController();
@@ -24,31 +23,40 @@ switch ($params[0]) {
         $controller->auth();
         break;
     case 'listar':
-        $inscripciones_controller->showInscripciones(null);
+        $controller = new InscripcionController();
+        $controller->showInscripciones(null);
         break;
     case 'inscripcion':
-        $inscripciones_controller->showFormInscripcion();
+        $controller = new InscripcionController();
+        $controller->showFormInscripcion();
         break;
     case 'agregar':
-        $inscripciones_controller->addInscripcion();
+        $controller = new InscripcionController();
+        $controller->addInscripcion();
         break;
     case 'eliminar':
-        $inscripciones_controller->removeInscripcion($params[1]);
+        $controller = new InscripcionController();
+        $controller->removeInscripcion($params[1]);
         break;
     case 'mostrarEdicion':
-        $inscripciones_controller->showEdit($params[1]);
+        $controller = new InscripcionController();
+        $controller->showEdit($params[1]);
         break;
     case 'editar':
-        $inscripciones_controller->modifyInscripcion($params[1]);
+        $controller = new InscripcionController();
+        $controller->modifyInscripcion($params[1]);
         break;
     case 'info':
-        $inscripciones_controller->showInfo($params[1]);
+        $controller = new InscripcionController();
+        $controller->showInfo($params[1]);
         break;
     case 'materias':
-        $inscripciones_controller->showMaterias();
+        $controller = new InscripcionController();
+        $controller->showMaterias();
         break;
     case 'filtro':
-        $inscripciones_controller->showInscripciones($params[1]);
+        $controller = new InscripcionController();
+        $controller->showInscripciones($params[1]);
         break;
     case 'logout':
         $controller = new AuthController();
