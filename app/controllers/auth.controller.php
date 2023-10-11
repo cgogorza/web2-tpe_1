@@ -1,7 +1,7 @@
 <?php
 require_once 'app/views/auth.view.php';
 require_once 'app/models/user.model.php';
-require_once 'app/helpers/auth.helper.php';
+require_once './app/helpers/auth.helper.php';
 
 
 class AuthController {
@@ -28,8 +28,10 @@ class AuthController {
 
         // Se busca el usuario
         $user = $this->model->getByEmail($email);
+        
         if ($user->email && password_verify($password, $user->password)) {
-        //Se realiza autenticación de usuario           
+        //Se realiza autenticación de usuario  
+            AuthHelper::login($user);
             header('Location: ' . BASE_URL);
         } else {
             $this->view->showLogin('Usuario inválido');
