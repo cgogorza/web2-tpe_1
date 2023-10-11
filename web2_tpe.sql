@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2023 a las 00:01:19
+-- Tiempo de generación: 11-10-2023 a las 19:49:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -40,14 +40,15 @@ CREATE TABLE `inscripciones` (
 --
 
 INSERT INTO `inscripciones` (`inscripcion_id`, `nombre`, `email`, `objetivo`, `materia_id`) VALUES
-(9, 'Marcelo', 'mleali@gmail.com', 'Final', 1),
-(10, 'Claudia', 'claudiagogorza65@gmail.com', 'Parcial', 2),
-(11, 'Fabrizio', 'fabrileali@gmail.com', 'TPE', 3),
 (12, 'Franco Leali', 'franleali@gmail.com', 'Final', 2),
 (13, 'Marina Blasón', 'marublason@gmail.com', 'TPE', 1),
 (14, 'Claudia', 'claudiagogorza65@gmail.com', 'TPE', 1),
 (15, 'Marcelo', 'cheloetal@gmail.com', 'Final', 2),
-(16, 'Fabri Leali', 'fabrileali@gmail.com', 'Final', 2);
+(16, 'Fabri Leali', 'fabrileali@gmail.com', 'Final', 2),
+(20, 'claudia', 'claudiagogorza65@gmail.com', 'tpe', 2),
+(21, 'Marcelo', 'cheloetal@gmail.com', 'Final', 3),
+(23, 'Marina Blasón', 'marublason@gmail.com', 'Final', 2),
+(24, 'Fabri Leali', 'fabrileali@gmail.com', 'Final', 2);
 
 -- --------------------------------------------------------
 
@@ -79,6 +80,7 @@ INSERT INTO `materias` (`materia_id`, `nombre`, `profesor`, `horario`) VALUES
 --
 
 CREATE TABLE `usuarios` (
+  `usuario_id` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -87,8 +89,8 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`email`, `password`) VALUES
-('webadmin@gmail.com', 'admin');
+INSERT INTO `usuarios` (`usuario_id`, `email`, `password`) VALUES
+(1, 'web@admin.com', '$2y$10$b.PgSbBFmyjfT0arAQVHVeBfGFNGf2AG0iIBKNUPxABlU33g.Hg0e');
 
 --
 -- Índices para tablas volcadas
@@ -108,6 +110,12 @@ ALTER TABLE `materias`
   ADD PRIMARY KEY (`materia_id`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`usuario_id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -115,13 +123,19 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  MODIFY `inscripcion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `inscripcion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
 --
 ALTER TABLE `materias`
   MODIFY `materia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

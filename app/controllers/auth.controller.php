@@ -1,8 +1,8 @@
 <?php
-require_once 'app/views/auth.view.php';
-require_once 'app/models/user.model.php';
-require_once 'app/helpers/auth.helper.php';
-
+require_once './app/views/auth.view.php';
+require_once './app/models/user.model.php';
+require_once './app/helpers/auth.helper.php';
+require './pass.php';
 
 class AuthController {
     private $view;
@@ -18,7 +18,7 @@ class AuthController {
     }
 
     public function auth() {
-        $email = $_POST['email'];
+        $email= $_POST['email'];
         $password = $_POST['password'];
 
         if (empty($email) || empty($password)) {
@@ -28,8 +28,12 @@ class AuthController {
 
         // Se busca el usuario
         $user = $this->model->getByEmail($email);
-        if ($user->email && password_verify($password, $user->password)) {
-        //Se realiza autenticación de usuario           
+        if (!empty($user) && password_verify($password, $user->password)) {
+
+        //Cuando pongo $hash no me anda. VERLO!
+        //ver lo de config.
+        //Se realiza autenticación de usuario   
+            AuthHelper::login($user);        
             header('Location: ' . BASE_URL);
         } else {
             $this->view->showLogin('Usuario inválido');

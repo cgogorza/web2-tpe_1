@@ -24,7 +24,7 @@ require 'templates/header.phtml';
                     <?php 
                         foreach ($materias as $materia) {
                             
-                            echo '<option value="' . $materia->materia_id . '">' . $materia->nombre . '</option>';
+                            echo '<option value=' . $materia->materia_id . '>' . $materia->nombre . '</option>';
                           
                         }
                     ?>

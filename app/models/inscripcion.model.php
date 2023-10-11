@@ -1,12 +1,14 @@
 <?php
 
+require_once './config.php';
+
 class InscripcionModel {
     private $db;
+    
 
     function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=web2_tpe;charset=utf8', 'root', '');
+        $this->db = new PDO("mysql:host= $host ;dbname=$dbname;charset=utf8", 'root', '');
     }
-
 
     function getInscripciones() {
         $query = $this->db->prepare('SELECT * FROM inscripciones');
@@ -34,7 +36,7 @@ class InscripcionModel {
         return $materias;
     }
 
-    function insertInscripcion($nombre, $email, $objetivo, $materia_id,) {
+    function insertInscripcion($nombre, $email, $objetivo, $materia_id) {
         $query = $this->db->prepare('INSERT INTO inscripciones (nombre, email, objetivo, materia_id) VALUES(?,?,?,?)');
         $query->execute([$nombre, $email, $objetivo, $materia_id]);
 

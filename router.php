@@ -15,6 +15,14 @@ $params = explode('/', $action);
 $inscripciones_controller = new InscripcionController();
 $controller = new AuthController();
 switch ($params[0]) {
+    case 'login':
+        $controller = new AuthController();
+        $controller->showLogin(); 
+        break;
+    case 'auth':
+        $controller = new AuthController();
+        $controller->auth();
+        break;
     case 'listar':
         $inscripciones_controller->showInscripciones(null);
         break;
@@ -41,14 +49,6 @@ switch ($params[0]) {
         break;
     case 'filtro':
         $inscripciones_controller->showInscripciones($params[1]);
-        break;
-    case 'login':
-        $controller = new AuthController();
-        $controller->showLogin(); 
-        break;
-    case 'auth':
-        $controller = new AuthController();
-        $controller->auth();
         break;
     case 'logout':
         $controller = new AuthController();
