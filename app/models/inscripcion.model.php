@@ -7,9 +7,11 @@ class InscripcionModel {
     
 
     function __construct() {
-        $this->db = new PDO("mysql:host= $host ;dbname=$dbname;charset=utf8", 'root', '');
+        $this->db = new PDO('mysql:host=localhost;dbname=web2_tpe;charset=utf8', 'root', '');
     }
-
+    //No está funcionando $host y $dbname.
+    //Si se pone lo que estaba antes anda bien, el tema es el config.ini.
+    
     function getInscripciones() {
         $query = $this->db->prepare('SELECT * FROM inscripciones');
         $query->execute();
