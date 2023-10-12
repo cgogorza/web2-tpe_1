@@ -21,9 +21,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+                        <?php if (isset($_SESSION['USER_EMAIL'])) :?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="logout">Logout (<?= $_SESSION['USER_EMAIL'] ?>)</a>
+                        </li>
+                        <?php else : ?>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="login">Login</a>
                         </li>
+                        <?php endif ?>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="inscripcion">Inscripción</a>
                         </li>
@@ -33,12 +39,6 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="materias">Lista de Materias</a>
                         </li>
-                        <?php if (!isset($_SESSION['USER_ID'])) : ?>
-                        <?php else : ?>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="logout">Logout (<?= $_SESSION['USER_EMAIL'] ?>)</a>
-                        </li>
-                        <?php endif ?>
                     </ul>
                 </div>
             </div>

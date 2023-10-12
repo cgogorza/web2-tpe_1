@@ -8,6 +8,10 @@ class InscripcionController {
     private $view;
 
     public function __construct() {
+        // barrera para usuario logueado///////////////////////////////
+       // $authHelper = new AuthHelper();
+        //$authHelper->verify();
+        ///////////////////////////////////////////////////////////////s
         AuthHelper::init();
         $this->model = new InscripcionModel();
         $this->view = new InscripcionView();
