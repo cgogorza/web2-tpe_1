@@ -30,8 +30,6 @@ class AuthController {
         $user = $this->model->getByEmail($email);
         if (!empty($user) && password_verify($password, $user->password)) {
 
-        //Cuando pongo $hash no me anda. VERLO!
-        //ver lo de config.
         //Se realiza autenticación de usuario   
             AuthHelper::login($user);        
             header('Location: ' . BASE_URL);
