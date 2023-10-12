@@ -1,7 +1,7 @@
 <?php
 require 'config.php';
 
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$hash = password_hash(PASSWORD, PASSWORD_DEFAULT);
 
 
 ?>
