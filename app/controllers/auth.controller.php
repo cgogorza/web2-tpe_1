@@ -2,7 +2,7 @@
 require_once './app/views/auth.view.php';
 require_once './app/models/user.model.php';
 require_once './app/helpers/auth.helper.php';
-require './pass.php';
+require_once './pass.php';
 
 class AuthController {
     private $view;
