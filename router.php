@@ -34,9 +34,13 @@ switch ($params[0]) {
         $controller = new InscripcionController();
         $controller->addInscripcion();
         break;
-    case 'eliminar':
+    case 'eliminar_inscripcion':
         $controller = new InscripcionController();
         $controller->removeInscripcion($params[1]);
+        break;
+    case 'eliminar_materia':
+        $controller = new InscripcionController();
+        $controller->removeMateria($params[1]);
         break;
     case 'mostrarEdicion':
         $controller = new InscripcionController();

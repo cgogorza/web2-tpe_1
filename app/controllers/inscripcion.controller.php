@@ -65,6 +65,28 @@ class InscripcionController {
         header('Location: ' . BASE_URL);
     }
 
+    function removeMateria($id) {
+        AuthHelper::verify();
+        $materias = $this->model->getMaterias();
+        $inscripciones = $this->model->getInscripciones();
+        $contador = 0;
+        foreach ($materias as $materia) {
+            if($materia->materia_id==$id){
+                foreach ($inscripciones as $inscripcion) {
+                    if($inscripcion->materia_id==$id){
+                        $contador ++;
+                    }
+                }
+                if($contador == 0){
+                    $this->model->deleteMateria($id);
+                    $this->view->showSuccess("Materia eliminada con exito");
+                } else{
+                    $this->view->showError("Para eliminar la categoria debe estar vacia");
+                }
+            }
+        }
+    }
+
     function showInfo($id){
         $inscripciones = $this->model->getInscripciones();
         $this->view->showInfoInscripcion($inscripciones,$id);
