@@ -8,10 +8,6 @@ class InscripcionController {
     private $view;
 
     public function __construct() {
-        // barrera para usuario logueado///////////////////////////////
-       // $authHelper = new AuthHelper();
-        //$authHelper->verify();
-        ///////////////////////////////////////////////////////////////s
         AuthHelper::init();
         $this->model = new InscripcionModel();
         $this->view = new InscripcionView();
@@ -74,7 +70,7 @@ class InscripcionController {
         AuthHelper::verify();
         $materias = $this->model->getMaterias();
         $inscripciones = $this->model->getInscripcionbyId($id);
-        $this->view->mostrarEdicion($inscripciones, $id, $materias);
+        $this->view->showEdicion($inscripciones, $id, $materias);
     }
 
     function modifyInscripcion($id) {
