@@ -20,9 +20,13 @@ class InscripcionView {
     public function showSuccess($success) {
         require 'templates/success.phtml';
     }
-    
+
     public function showInfoInscripcion($inscripciones,$id){
         require 'templates/infoInscripcion.phtml';
+    }
+
+    public function showInfoMaterias($materias,$id){
+        require 'templates/infoMateria.phtml';
     }
 
     public function showEdicion($inscripciones, $id, $materias){

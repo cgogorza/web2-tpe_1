@@ -54,6 +54,10 @@ switch ($params[0]) {
         $controller = new InscripcionController();
         $controller->showInfo($params[1]);
         break;
+    case 'infoMateria':
+        $controller = new InscripcionController();
+        $controller->showInfoMateria($params[1]);
+        break;
     case 'materias':
         $controller = new InscripcionController();
         $controller->showMaterias();
