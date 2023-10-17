@@ -73,7 +73,7 @@ class InscripcionController {
                     $this->model->deleteMateria($id);
                     $this->view->showSuccess("Materia eliminada con exito");
                 } else{
-                    $this->view->showError("Para eliminar la categoria debe estar vacia");
+                    $this->view->showError("Hay alumnos inscriptos. Comunicarse con la cátedra.");
                 }
             }
         }
