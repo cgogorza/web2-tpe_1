@@ -46,6 +46,11 @@ class InscripcionModel {
         $query->execute([$id]);
     }
 
+    function deleteMateria($id) {
+        $query = $this->db->prepare('DELETE FROM materias WHERE materia_id = ?');
+        $query->execute([$id]);
+    }
+
     function updateInscripcion($nombre, $email, $objetivo, $materia_id, $id) {
         $query = $this->db->prepare('UPDATE inscripciones SET nombre = ?, email = ?, objetivo = ?,  materia_id = ? WHERE inscripcion_id = ?');
         $query->execute([$nombre, $email, $objetivo, $materia_id, $id]);

@@ -16,6 +16,10 @@ class InscripcionView {
     public function showError($error) {
         require 'templates/error.phtml';
     }
+
+    public function showSuccess($success) {
+        require 'templates/success.phtml';
+    }
     
     public function showInfoInscripcion($inscripciones,$id){
         require 'templates/infoInscripcion.phtml';
