@@ -6,14 +6,14 @@ require 'templates/header.phtml';
         <div class="col-4">
             <div class="form-group">
                 <label>Nombre y Apellido</label>
-                <input name="nombre" type="text" class="form-control">
+                <input name="nombre" type="text" class="form-control" placeholder="Nombre y Apellido">
             </div>
         </div>
 
         <div class="col-4">
             <div class="form-group">
                 <label>email</label>
-                <input name="email" type="email" class="form-control">
+                <input name="email" type="email" class="form-control" placeholder="E-mail">
             </div>
         </div>
 
@@ -36,7 +36,7 @@ require 'templates/header.phtml';
 
     <div class="form-group">
         <label>Objetivo</label>
-        <textarea name="objetivo" class="form-control" rows="3"></textarea>
+        <textarea name="objetivo" placeholder="Objetivo" class="form-control" rows="3"></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary mt-2">Agregar</button>
