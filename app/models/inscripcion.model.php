@@ -24,24 +24,7 @@ class InscripcionModel {
         
         return  $query->fetchAll(PDO::FETCH_OBJ);
     }
-
-    function getMaterias() {
-        $query = $this->db->prepare('SELECT * FROM materias');
-        $query->execute();
-
-        $materias = $query->fetchAll(PDO::FETCH_OBJ);
-
-        return $materias;
-    }
-
-    function getMateriabyId($id) {
-
-        $query = $this->db->prepare('SELECT * FROM materias WHERE materia_id = ?');
-        $query->execute([$id]);
-        
-        return  $query->fetchAll(PDO::FETCH_OBJ);
-    }
-
+  
     function insertInscripcion($nombre, $email, $objetivo, $materia_id) {
         $query = $this->db->prepare('INSERT INTO inscripciones (nombre, email, objetivo, materia_id) VALUES(?,?,?,?)');
         $query->execute([$nombre, $email, $objetivo, $materia_id]);
@@ -51,11 +34,6 @@ class InscripcionModel {
 
     function deleteInscripcion($id) {
         $query = $this->db->prepare('DELETE FROM inscripciones WHERE inscripcion_id = ?');
-        $query->execute([$id]);
-    }
-
-    function deleteMateria($id) {
-        $query = $this->db->prepare('DELETE FROM materias WHERE materia_id = ?');
         $query->execute([$id]);
     }
 

@@ -1,5 +1,6 @@
 <?php
 require "./app/controllers/inscripcion.controller.php";
+require "./app/controllers/materia.controller.php";
 require "./app/controllers/auth.controller.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -27,7 +28,7 @@ switch ($params[0]) {
         $controller->showInscripciones(null);
         break;
     case 'inscripcion':
-        $controller = new InscripcionController();
+        $controller = new MateriaController();
         $controller->showFormInscripcion();
         break;
     case 'agregar':
@@ -39,7 +40,7 @@ switch ($params[0]) {
         $controller->removeInscripcion($params[1]);
         break;
     case 'eliminar_materia':
-        $controller = new InscripcionController();
+        $controller = new MateriaController();
         $controller->removeMateria($params[1]);
         break;
     case 'mostrarEdicion':
@@ -55,11 +56,11 @@ switch ($params[0]) {
         $controller->showInfo($params[1]);
         break;
     case 'infoMateria':
-        $controller = new InscripcionController();
+        $controller = new MateriaController();
         $controller->showInfoMateria($params[1]);
         break;
     case 'materias':
-        $controller = new InscripcionController();
+        $controller = new MateriaController();
         $controller->showMaterias();
         break;
     case 'filtro':

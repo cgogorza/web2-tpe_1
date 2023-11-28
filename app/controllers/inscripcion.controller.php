@@ -1,33 +1,26 @@
 <?php
 require_once './app/models/inscripcion.model.php';
+require_once './app/models/materia.model.php';
 require_once './app/views/inscripcion.view.php';
 require_once './app/helpers/auth.helper.php';
 
 class InscripcionController {
-    private $model;
+    private $inscripcionModel;
+    private $materiaModel;
     private $view;
 
     public function __construct() {
         AuthHelper::init();
-        $this->model = new InscripcionModel();
+        $this->inscripcionModel = new InscripcionModel();
+        $this->materiaModel = new MateriaModel();
         $this->view = new InscripcionView();
         
     }
 
     public function showInscripciones($id) {        
-        $inscripciones = $this->model->getInscripciones();
-        $materias = $this->model->getMaterias();
+        $inscripciones = $this->inscripcionModel->getInscripciones();
+        $materias = $this->materiaModel->getMaterias();
         $this->view->showInscripciones($inscripciones,$materias,$id);
-    }
-
-    public function showMaterias() {       
-        $materias = $this->model->getMaterias();
-        $this->view->showMaterias($materias);
-    }
-
-    public function showFormInscripcion(){
-        $materias = $this->model->getMaterias();
-        $this->view->showFormInscripcion($materias);
     }
 
     public function addInscripcion() {
@@ -43,7 +36,7 @@ class InscripcionController {
             return;
         }
 
-        $id = $this->model->insertInscripcion($nombre, $email, $objetivo, $materia_id);
+        $id = $this->inscripcionModel->insertInscripcion($nombre, $email, $objetivo, $materia_id);
         if ($id) {
             header('Location: ' . BASE_URL);
         } else {
@@ -53,46 +46,19 @@ class InscripcionController {
 
     function removeInscripcion($id) {
         AuthHelper::verify();
-        $this->model->deleteInscripcion($id);
+        $this->inscripcionModel->deleteInscripcion($id);
         header('Location: ' . BASE_URL);
     }
 
-    function removeMateria($id) {
-        AuthHelper::verify();
-        $materias = $this->model->getMaterias();
-        $inscripciones = $this->model->getInscripciones();
-        $contador = 0;
-        foreach ($materias as $materia) {
-            if($materia->materia_id==$id){
-                foreach ($inscripciones as $inscripcion) {
-                    if($inscripcion->materia_id==$id){
-                        $contador ++;
-                    }
-                }
-                if($contador == 0){
-                    $this->model->deleteMateria($id);
-                    $this->view->showSuccess("Materia eliminada con exito");
-                } else{
-                    $this->view->showError("Hay alumnos inscriptos. Comunicarse con la cátedra.");
-                }
-            }
-        }
-    }
-
     function showInfo($id){
-        $inscripciones = $this->model->getInscripciones();
+        $inscripciones = $this->inscripcionModel->getInscripciones();
         $this->view->showInfoInscripcion($inscripciones,$id);
-    }
-
-    function showInfoMateria($id){
-        $materias = $this->model->getMateriabyId($id);
-        $this->view->showInfoMaterias($materias, $id);
     }
 
     function showEdit($id) {
         AuthHelper::verify();
-        $materias = $this->model->getMaterias();
-        $inscripciones = $this->model->getInscripcionbyId($id);
+        $materias = $this->materiaModel->getMaterias();
+        $inscripciones = $this->inscripcionModel->getInscripcionbyId($id);
         $this->view->showEdicion($inscripciones, $id, $materias);
     }
 
@@ -109,7 +75,7 @@ class InscripcionController {
             return;
         }
 
-        $id = $this->model->updateInscripcion($nombre, $email, $objetivo, $materia_id, $id);
+        $id = $this->inscripcionModel->updateInscripcion($nombre, $email, $objetivo, $materia_id, $id);
         if ($id) {
             header('Location: ' . BASE_URL);
         } else {
