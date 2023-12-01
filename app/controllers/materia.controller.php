@@ -16,12 +16,6 @@ class MateriaController {
         
     }
 
-    public function showInscripciones($id) {        
-        $inscripciones = $this->inscripcionModel->getInscripciones();
-        $materias = $this->materiaModel->getMaterias();
-        $this->view->showInscripciones($inscripciones,$materias,$id);
-    }
-
     public function showMaterias() {       
         $materias = $this->materiaModel->getMaterias();
         $this->view->showMaterias($materias);

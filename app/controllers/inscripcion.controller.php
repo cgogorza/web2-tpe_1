@@ -80,6 +80,6 @@ class InscripcionController {
             header('Location: ' . BASE_URL);
         } else {
             $this->view->showError("Error al modificar la tarea");
-        }
+        }                           
     }
 }
