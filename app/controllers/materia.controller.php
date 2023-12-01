@@ -12,6 +12,7 @@ class MateriaController {
     public function __construct() {
         AuthHelper::init();
         $this->materiaModel = new MateriaModel();
+        $this->inscripcionModel = new InscripcionModel();
         $this->view = new InscripcionView();
         
     }
